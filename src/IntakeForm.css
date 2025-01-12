@@ -1,0 +1,112 @@
+.intake-form {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding: 2rem;
+  background: rgba(121, 116, 92, 0.15);
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: 1px solid rgba(121, 116, 92, 0.3);
+}
+
+.intake-form h1 {
+  text-align: center;
+  color: var(--yellow);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+section {
+  background: rgba(121, 116, 92, 0.2);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(121, 116, 92, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: var(--yellow);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--brown);
+  padding-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  background: rgba(29, 25, 12, 0.4);
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid rgba(121, 116, 92, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--yellow);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  font-size: 1rem;
+  background: rgba(29, 25, 12, 0.9);
+  color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 2px rgba(255, 202, 58, 0.2);
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submit-button {
+  background-color: var(--brown);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 100%;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+  border: 1px solid var(--yellow);
+}
+
+.submit-button:hover {
+  background-color: #855c37;
+}
+
+.header {
+  background-color: var(--dark);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
