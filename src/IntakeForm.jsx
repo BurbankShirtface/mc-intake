@@ -63,15 +63,13 @@ Inspiration Notes: ${formData.inspirationNotes}
 
   return (
     <div className="intake-form">
-      <h1>Bathroom Renovation Intake Form</h1>
+      <h1>
+        {formData.clientName
+          ? `${formData.clientName} - ${formData.projectAddress}`
+          : "Bathroom Renovation Intake Form"}
+      </h1>
 
-      <form
-        name="bathroom-renovation"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-      >
+      <form onSubmit={handleSubmit}>
         <section>
           <h2>1. Client Information</h2>
           <div className="form-group">
@@ -130,7 +128,7 @@ Inspiration Notes: ${formData.inspirationNotes}
               name="projectAddress"
               value={formData.projectAddress}
               onChange={handleChange}
-              required
+              placeholder="If Different Than Home Address"
             />
           </div>
         </section>
