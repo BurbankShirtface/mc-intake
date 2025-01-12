@@ -18,8 +18,6 @@ function IntakeForm() {
     inspirationNotes: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -30,17 +28,38 @@ function IntakeForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-  };
 
-  if (submitted) {
-    return (
-      <div className="intake-form">
-        <h2>Thank you for your submission!</h2>
-        <p>We'll be in touch soon.</p>
-      </div>
-    );
-  }
+    // Create email body with formatted content
+    const emailBody = `
+Client Information:
+------------------
+Name: ${formData.clientName}
+Phone: ${formData.phoneNumber}
+Email: ${formData.emailAddress}
+Home Address: ${formData.homeAddress}
+Project Address: ${formData.projectAddress}
+
+Project Details:
+---------------
+Project Scope: ${formData.projectScope}
+Client Expectations: ${formData.clientExpectations}
+Budget Range: ${formData.budgetRange}
+Timeline Expectations: ${formData.timelineExpectations}
+
+Design Information:
+-----------------
+Design Source: ${formData.designSource}
+Inspiration Notes: ${formData.inspirationNotes}
+    `.trim();
+
+    // Create mailto link with form data
+    const mailtoLink = `mailto:ryan@montgomeryconstruction.ca?subject=New Bathroom Renovation Inquiry - ${
+      formData.clientName
+    }&body=${encodeURIComponent(emailBody)}`;
+
+    // Open default email client
+    window.location.href = mailtoLink;
+  };
 
   return (
     <div className="intake-form">
@@ -55,16 +74,9 @@ function IntakeForm() {
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
+        action="/success"
       >
-        {/* Netlify Forms hidden fields */}
         <input type="hidden" name="form-name" value="bathroom-renovation" />
-        <p hidden>
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
-
         <section>
           <h2>1. Client Information</h2>
           <div className="form-group">
