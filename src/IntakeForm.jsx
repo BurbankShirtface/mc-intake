@@ -63,20 +63,15 @@ Inspiration Notes: ${formData.inspirationNotes}
 
   return (
     <div className="intake-form">
-      <h1>
-        {formData.clientName
-          ? `${formData.clientName} - ${formData.projectAddress}`
-          : "Bathroom Renovation Intake Form"}
-      </h1>
+      <h1>Bathroom Renovation Intake Form</h1>
 
       <form
         name="bathroom-renovation"
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        action="/success"
+        onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="bathroom-renovation" />
         <section>
           <h2>1. Client Information</h2>
           <div className="form-group">
